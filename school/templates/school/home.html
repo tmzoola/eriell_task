@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>This is home page</h1>
+<ul>
+{% if user.user_role == 'admin' %}
+    <li><a href="{% url 'users:register' %}">Create teacher or Student</a></li>
+
+{% elif user.user_role == 'student' %}
+
+    <li><a href="{% url 'school:student_grades' %}">Student grades</a></li>
+
+{% elif user.user_role == 'teacher' %}
+
+    <li><a href="{% url 'school:teacher_subjects' %}">Teacher Subjects</a></li>
+
+{% endif %}
+
+</ul>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+
+      <div class="row mb-4">
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.username}}'s Average Score</h5>
+                    <p class="card-text">{{ average_score }}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Subject ID</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Teacher</th>
+      <th scope="col">grade</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for grade in grades %}
+    <tr>
+      <th scope="row">{{grade.id}}</th>
+      <td>{{grade.subject}}</td>
+      <td>{{grade.teacher}}</td>
+      <td>{{grade.grade}}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+</div>
+{% endblock content %}

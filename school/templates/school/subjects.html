@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+
+      <div class="row mb-4">
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.username}}'s Total students </h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Subject ID</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Teacher</th>
+      <th scope="col">number of students</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for sub in subjects %}
+    <tr>
+      <th scope="row">{{sub.id}}</th>
+      <td>{{sub.name}}</td>
+      <td>{{sub.teacher}}</td>
+      <td>{{sub.students.count}}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+</div>
+{% endblock content %}
